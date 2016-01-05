@@ -1,5 +1,7 @@
 # Microsoft Azure SDK for Go
 
+A fork of Brendan Dixon's Go SDK repository.
+
 This project provides various Go packages to perform operations
 on Microsoft Azure REST APIs.
 
