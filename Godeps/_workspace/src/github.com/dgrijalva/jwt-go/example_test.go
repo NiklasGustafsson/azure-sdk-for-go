@@ -2,7 +2,7 @@ package jwt_test
 
 import (
 	"fmt"
-	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/github.com/dgrijalva/jwt-go"
+	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/github.com/dgrijalva/jwt-go"
 	"time"
 )
 

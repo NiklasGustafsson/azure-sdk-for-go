@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/github.com/Azure/go-autorest/autorest/mocks"
+	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/github.com/Azure/go-autorest/autorest/mocks"
 )
 
 // PrepareDecorators wrap and invoke a Preparer. Most often, the decorator invokes the passed

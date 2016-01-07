@@ -4,9 +4,9 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
-	"github.com/NiklasGustafsson/azure-sdk-for-go/management/hostedservice"
-	"github.com/NiklasGustafsson/azure-sdk-for-go/management/virtualmachine"
+	"github.com/Azure/azure-sdk-for-go/management"
+	"github.com/Azure/azure-sdk-for-go/management/hostedservice"
+	"github.com/Azure/azure-sdk-for-go/management/virtualmachine"
 )
 
 func Example() {

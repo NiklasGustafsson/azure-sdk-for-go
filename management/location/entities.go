@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
+	"github.com/Azure/azure-sdk-for-go/management"
 )
 
 //LocationClient is used to perform operations on Azure Locations

@@ -12,7 +12,7 @@ import (
 	"encoding/asn1"
 	"errors"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/golang.org/x/crypto/pkcs12/internal/rc2"
+	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/golang.org/x/crypto/pkcs12/internal/rc2"
 )
 
 var (

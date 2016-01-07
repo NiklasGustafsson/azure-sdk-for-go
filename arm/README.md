@@ -5,13 +5,13 @@
 Azure is growing rapidly, regularly adding new services and features. While rapid growth
 is good for users, it is hard on SDKs. Each new service and each new feature requires someone to
 learn the details and add the needed code to the SDK. As a result, the
-[Azure SDK for Go](https://github.com/NiklasGustafsson/azure-sdk-for-go)
+[Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go)
 has lagged behind Azure. It is missing
 entire services and has not kept current with features. There is simply too much change to maintain
 a hand-written SDK.
 
 For this reason, the
-[Azure SDK for Go](https://github.com/NiklasGustafsson/azure-sdk-for-go),
+[Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go),
 with the release of the Azure Resource Manager (ARM)
 packages, is transitioning to a generated-code model. Other Azure SDKs, notably the
 [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net), have successfully adopted a
@@ -53,7 +53,7 @@ goals were:
 fan-in set ups.
 
 These are best shown in a series of examples, all of which are included in the
-[arm/examples](https://github.com/NiklasGustafsson/azure-sdk-for-go/blob/master/arm/examples/)
+[arm/examples](https://github.com/Azure/azure-sdk-for-go/blob/master/arm/examples/)
 sub-folder.
 
 ## First a Sidenote: Authentication and the Azure Resource Manager
@@ -90,11 +90,11 @@ clients to avoid name collision and improve usability. For example, the
 [Azure Storage](http://azure.microsoft.com/en-us/documentation/services/storage/)
 package has
 two clients:
-[storage.StorageAccountsClient](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#StorageAccountsClient)
+[storage.StorageAccountsClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#StorageAccountsClient)
 and
-[storage.UsageOperationsClient](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#UsageOperationsClient).
+[storage.UsageOperationsClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#UsageOperationsClient).
 To check if a name is available, use the
-[storage.StorageAccountsClient](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#StorageAccountsClient):
+[storage.StorageAccountsClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#StorageAccountsClient):
 
 ```go
 package main
@@ -103,8 +103,8 @@ import(
   "fmt"
   "log"
 
-  "github.com/NiklasGustafsson/azure-sdk-for-go/arm/examples/helpers"
-  "github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage"
+  "github.com/Azure/azure-sdk-for-go/arm/examples/helpers"
+  "github.com/Azure/azure-sdk-for-go/arm/storage"
   "github.com/Azure/go-autorest/autorest"
   "github.com/Azure/go-autorest/autorest/azure"
   "github.com/Azure/go-autorest/autorest/to"
@@ -163,7 +163,7 @@ with a custom
 or
 [autorest.RespondDecorator](https://godoc.org/github.com/Azure/go-autorest/autorest#RespondDecorator)
 enables more control. See the included example file
-[check.go](https://github.com/NiklasGustafsson/azure-sdk-for-go/blob/master/arm/examples/check.go)
+[check.go](https://github.com/Azure/azure-sdk-for-go/blob/master/arm/examples/check.go)
 for more details. Through these you can modify the outgoing request, inspect the incoming response,
 or even go so far as to provide a
 [circuit breaker](https://msdn.microsoft.com/en-us/library/dn589784.aspx)
@@ -174,9 +174,9 @@ Lastly, all Azure ARM API calls return an instance of the
 Not only does the interface give anonymous access to the original
 [error](http://golang.org/ref/spec#Errors),
 but provides the package type (e.g.,
-[storage.StorageAccountsClient](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#StorageAccountsClient)),
+[storage.StorageAccountsClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#StorageAccountsClient)),
 the failing method (e.g.,
-[CheckNameAvailability](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#StorageAccountsClient.CheckNameAvailability)),
+[CheckNameAvailability](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#StorageAccountsClient.CheckNameAvailability)),
 and a detailed error message.
 
 ## Something a Bit More Complex: Creating a new Azure Storage account
@@ -220,8 +220,8 @@ package main
 import(
   "fmt"
 
-  "github.com/NiklasGustafsson/azure-sdk-for-go/arm/examples/helpers"
-  "github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage"
+  "github.com/Azure/azure-sdk-for-go/arm/examples/helpers"
+  "github.com/Azure/azure-sdk-for-go/arm/storage"
   "github.com/Azure/go-autorest/autorest"
   "github.com/Azure/go-autorest/autorest/azure"
   "github.com/Azure/go-autorest/autorest/to"
@@ -268,14 +268,14 @@ func create_account(resourceGroup, name string) {
 The above example modifies the
 [autorest.Client](https://godoc.org/github.com/Azure/go-autorest/autorest#Client)
 portion of the
-[storage.StorageAccountsClient](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage#StorageAccountsClient)
+[storage.StorageAccountsClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/arm/storage#StorageAccountsClient)
 to poll for a fixed number of attempts versus polling for a set duration (which is the default).
 If an error occurs creating the storage account, the code inspects the HTTP status code and
 prints the URL the
 [Azure Storage](http://azure.microsoft.com/en-us/documentation/services/storage/)
 service returned for polling.
 More details, including deleting the created account, are in the example code file
-[create.go](https://github.com/NiklasGustafsson/azure-sdk-for-go/blob/master/arm/examples/create.go).
+[create.go](https://github.com/Azure/azure-sdk-for-go/blob/master/arm/examples/create.go).
 
 ## Making Asynchronous Requests
 
@@ -338,19 +338,19 @@ We look forward to hearing from you!
 Install the packages you require as you would any other Go package:
 
 ```bash
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/authorization
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/compute
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/dns
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/features
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/logic
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/network
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/redis
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/resources
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/scheduler
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/search
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/storage
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/subscriptions
-go get github.com/NiklasGustafsson/azure-sdk-for-go/arm/web
+go get github.com/Azure/azure-sdk-for-go/arm/authorization
+go get github.com/Azure/azure-sdk-for-go/arm/compute
+go get github.com/Azure/azure-sdk-for-go/arm/dns
+go get github.com/Azure/azure-sdk-for-go/arm/features
+go get github.com/Azure/azure-sdk-for-go/arm/logic
+go get github.com/Azure/azure-sdk-for-go/arm/network
+go get github.com/Azure/azure-sdk-for-go/arm/redis
+go get github.com/Azure/azure-sdk-for-go/arm/resources
+go get github.com/Azure/azure-sdk-for-go/arm/scheduler
+go get github.com/Azure/azure-sdk-for-go/arm/search
+go get github.com/Azure/azure-sdk-for-go/arm/storage
+go get github.com/Azure/azure-sdk-for-go/arm/subscriptions
+go get github.com/Azure/azure-sdk-for-go/arm/web
 ```
 
 ## License

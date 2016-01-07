@@ -3,8 +3,8 @@ package vmutils
 import (
 	"time"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
-	vm "github.com/NiklasGustafsson/azure-sdk-for-go/management/virtualmachine"
+	"github.com/Azure/azure-sdk-for-go/management"
+	vm "github.com/Azure/azure-sdk-for-go/management/virtualmachine"
 )
 
 // WaitForDeploymentPowerState blocks until all role instances in deployment to

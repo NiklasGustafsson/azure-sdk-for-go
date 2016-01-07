@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/github.com/Azure/go-autorest/autorest/mocks"
+	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/github.com/Azure/go-autorest/autorest/mocks"
 )
 
 func ExampleSendWithSender() {
