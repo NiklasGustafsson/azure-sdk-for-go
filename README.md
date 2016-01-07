@@ -5,9 +5,9 @@ A fork of Brendan Dixon's Go SDK repository.
 This project provides various Go packages to perform operations
 on Microsoft Azure REST APIs.
 
-[![GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go?status.svg)](https://godoc.org/github.com/Azure/azure-sdk-for-go) [![Build Status](https://travis-ci.org/Azure/azure-sdk-for-go.svg?branch=master)](https://travis-ci.org/Azure/azure-sdk-for-go)
+[![GoDoc](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go?status.svg)](https://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go) [![Build Status](https://travis-ci.org/Azure/azure-sdk-for-go.svg?branch=master)](https://travis-ci.org/Azure/azure-sdk-for-go)
 
-See list of implemented API clients [here](http://godoc.org/github.com/Azure/azure-sdk-for-go).
+See list of implemented API clients [here](http://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go).
 
 > **NOTE:** This repository is under heavy ongoing development and
 is likely to break over time. We currently do not have any releases
@@ -16,11 +16,11 @@ the packages in your project and update them when a stable tag is out.
 
 # Installation
 
-    go get -d github.com/Azure/azure-sdk-for-go/management
+    go get -d github.com/NiklasGustafsson/azure-sdk-for-go/management
 
 # Usage
 
-Read Godoc of the repository at: http://godoc.org/github.com/Azure/azure-sdk-for-go/
+Read Godoc of the repository at: http://godoc.org/github.com/NiklasGustafsson/azure-sdk-for-go/
 
 The client currently supports authentication to the Service Management
 API with certificates or Azure `.publishSettings` file. You can 
@@ -36,10 +36,10 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	"github.com/Azure/azure-sdk-for-go/management"
-	"github.com/Azure/azure-sdk-for-go/management/hostedservice"
-	"github.com/Azure/azure-sdk-for-go/management/virtualmachine"
-	"github.com/Azure/azure-sdk-for-go/management/vmutils"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management/hostedservice"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management/virtualmachine"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management/vmutils"
 )
 
 func main() {

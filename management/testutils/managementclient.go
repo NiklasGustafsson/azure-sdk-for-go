@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Azure/azure-sdk-for-go/management"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
 )
 
 // GetTestClient returns a management Client for testing. Expects

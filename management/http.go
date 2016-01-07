@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/Azure/azure-sdk-for-go/core/http"
-	"github.com/Azure/azure-sdk-for-go/core/tls"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/core/http"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/core/tls"
 )
 
 const (

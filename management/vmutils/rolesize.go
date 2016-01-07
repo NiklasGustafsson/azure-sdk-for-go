@@ -3,9 +3,9 @@ package vmutils
 import (
 	"fmt"
 
-	"github.com/Azure/azure-sdk-for-go/management"
-	lc "github.com/Azure/azure-sdk-for-go/management/location"
-	vm "github.com/Azure/azure-sdk-for-go/management/virtualmachine"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
+	lc "github.com/NiklasGustafsson/azure-sdk-for-go/management/location"
+	vm "github.com/NiklasGustafsson/azure-sdk-for-go/management/virtualmachine"
 )
 
 // IsRoleSizeValid retrieves the available rolesizes using

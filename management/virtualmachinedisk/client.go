@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/Azure/azure-sdk-for-go/management"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/management"
 )
 
 const (

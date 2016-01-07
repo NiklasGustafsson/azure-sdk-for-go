@@ -13,12 +13,12 @@
 - Added support for DNS, Redis, and Web site services
 - Updated Storage service to API version 2015-06-15
 - Updated Network to include routing table support
-- Address https://github.com/Azure/azure-sdk-for-go/issues/232
-- Address https://github.com/Azure/azure-sdk-for-go/issues/231
-- Address https://github.com/Azure/azure-sdk-for-go/issues/230
-- Address https://github.com/Azure/azure-sdk-for-go/issues/224
-- Address https://github.com/Azure/azure-sdk-for-go/issues/184
-- Address https://github.com/Azure/azure-sdk-for-go/issues/183
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/232
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/231
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/230
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/224
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/184
+- Address https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/183
 
 ------
 
@@ -30,8 +30,8 @@
 
 ##### Fixed Issues
 
-- https://github.com/Azure/azure-sdk-for-go/issues/196
-- https://github.com/Azure/azure-sdk-for-go/issues/213
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/196
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/213
 
 ------
 
@@ -61,10 +61,10 @@ Accomplishing this required renaming various fields and parameters (such as chan
 
 ##### Fixed Issues:
 
-- https://github.com/Azure/azure-sdk-for-go/issues/205
-- https://github.com/Azure/azure-sdk-for-go/issues/206
-- https://github.com/Azure/azure-sdk-for-go/issues/211
-- https://github.com/Azure/azure-sdk-for-go/issues/212
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/205
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/206
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/211
+- https://github.com/NiklasGustafsson/azure-sdk-for-go/issues/212
 
 -----
 

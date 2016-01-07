@@ -1,7 +1,7 @@
 package jwt_test
 
 import (
-	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/github.com/dgrijalva/jwt-go"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/github.com/dgrijalva/jwt-go"
 	"io/ioutil"
 	"strings"
 	"testing"

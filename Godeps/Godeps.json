@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/Azure/azure-sdk-for-go",
+	"ImportPath": "github.com/NiklasGustafsson/azure-sdk-for-go",
 	"GoVersion": "go1.5.1",
 	"Packages": [
 		"./..."

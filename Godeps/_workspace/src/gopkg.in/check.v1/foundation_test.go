@@ -8,7 +8,7 @@ package check_test
 
 import (
 	"fmt"
-	"github.com/Azure/azure-sdk-for-go/Godeps/_workspace/src/gopkg.in/check.v1"
+	"github.com/NiklasGustafsson/azure-sdk-for-go/Godeps/_workspace/src/gopkg.in/check.v1"
 	"log"
 	"os"
 	"regexp"
