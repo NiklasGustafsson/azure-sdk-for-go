@@ -527,6 +527,7 @@ func (b BlobStorageClient) GetBlobProperties(container, name string) (*BlobPrope
 	return &BlobProperties{
 		LastModified:          resp.headers.Get("Last-Modified"),
 		Etag:                  resp.headers.Get("Etag"),
+		ContentType:           resp.headers.Get("Content-Type"), 
 		ContentMD5:            resp.headers.Get("Content-MD5"),
 		ContentLength:         contentLength,
 		ContentEncoding:       resp.headers.Get("Content-Encoding"),
@@ -539,6 +540,26 @@ func (b BlobStorageClient) GetBlobProperties(container, name string) (*BlobPrope
 		CopyStatus:            resp.headers.Get("x-ms-copy-status"),
 		BlobType:              BlobType(resp.headers.Get("x-ms-blob-type")),
 	}, nil
+}
+
+// SetBlobProperties replaces the properties for the specified blob.
+//
+// See https://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
+func (b BlobStorageClient) SetBlobProperties(container, name string, props BlobProperties) error {
+	path := fmt.Sprintf("%s/%s", container, name)
+	uri := b.client.getEndpoint(blobServiceName, path, url.Values{"comp": {"properties"}})
+	headers := b.client.getStandardHeaders()
+   	headers["Content-Length"] = "0"
+
+	setPropertyHeaders(headers, &props)       
+
+	resp, err := b.client.exec("PUT", uri, headers, nil)
+	if err != nil {
+		return err
+	}
+	defer resp.body.Close()
+
+	return checkRespCode(resp.statusCode, []int{http.StatusOK})
 }
 
 // SetBlobMetadata replaces the metadata for the specified blob.
@@ -614,7 +635,7 @@ func (b BlobStorageClient) GetBlobMetadata(container, name string) (map[string]s
 //
 // See https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx
 func (b BlobStorageClient) CreateBlockBlob(container, name string) error {
-	return b.CreateBlockBlobFromReader(container, name, 0, nil)
+	return b.CreateBlockBlobFromReader(container, name, 0, nil, nil)
 }
 
 // CreateBlockBlobFromReader initializes a block blob using data from
@@ -626,12 +647,18 @@ func (b BlobStorageClient) CreateBlockBlob(container, name string) error {
 // PutBlock, and PutBlockList.
 //
 // See https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx
-func (b BlobStorageClient) CreateBlockBlobFromReader(container, name string, size uint64, blob io.Reader) error {
+func (b BlobStorageClient) CreateBlockBlobFromReader(container, name string, size uint64, blob io.Reader, props *BlobProperties) error {
 	path := fmt.Sprintf("%s/%s", container, name)
 	uri := b.client.getEndpoint(blobServiceName, path, url.Values{})
 	headers := b.client.getStandardHeaders()
 	headers["x-ms-blob-type"] = string(BlobTypeBlock)
 	headers["Content-Length"] = fmt.Sprintf("%d", size)
+
+	if props != nil && props.ContentType != "" {
+		headers["Content-Type"] = props.ContentType
+	}
+	
+	setPropertyHeaders(headers, props)
 
 	resp, err := b.client.exec("PUT", uri, headers, blob)
 	if err != nil {
@@ -639,6 +666,24 @@ func (b BlobStorageClient) CreateBlockBlobFromReader(container, name string, siz
 	}
 	defer resp.body.Close()
 	return checkRespCode(resp.statusCode, []int{http.StatusCreated})
+}
+
+func setPropertyHeaders(headers map[string]string, props *BlobProperties) {
+	if props != nil {
+		ct := props.ContentType
+		md5 := props.ContentMD5
+		enc := props.ContentEncoding
+		
+		if ct != "" {
+			headers["x-ms-blob-content-type"] = ct
+		}
+		if md5 != "" {
+		   headers["x-ms-blob-content-md5"] = md5 
+		}
+		if enc != "" {
+		   headers["x-ms-blob-content-encoding"] = enc 
+		}
+	}
 }
 
 // PutBlock saves the given data chunk to the specified block blob with
@@ -665,7 +710,7 @@ func (b BlobStorageClient) PutBlockWithLength(container, name, blockID string, s
 	headers := b.client.getStandardHeaders()
 	headers["x-ms-blob-type"] = string(BlobTypeBlock)
 	headers["Content-Length"] = fmt.Sprintf("%v", size)
-
+	
 	resp, err := b.client.exec("PUT", uri, headers, blob)
 	if err != nil {
 		return err
